@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { getAnimalData } from '../services/animal.service';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import ResultsGrid from '../components/ResultsGrid';
 import Animal from '../models/Animal';
 import { useTranslation } from 'react-i18next';
+import { useAnimalStore } from '../stores/useAnimalStore';
 
 function App() {
-  const [animalData, setAnimalData] = useState(null);
-  const [loading, setLoading] = useState(false);
   const { t, i18n } = useTranslation();
+  const { animalData, setAnimalData, loading, setLoading } = useAnimalStore();
 
   const load = async (query) => {
     setLoading(true);
