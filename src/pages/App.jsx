@@ -1,48 +1,63 @@
-import { use, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useState, useEffect } from "react";
 import { getAnimalData } from "../services/animal.service";
+import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
+import ResultsGrid from "../components/ResultsGrid";
+import Animal from "../models/Animal";
+import { useTranslation } from "react-i18next";
 
 function App() {
-  const [animal, setAnimal] = useState(getAnimalData("lion"));
+  const [animalData, setAnimalData] = useState(null);
   const [searchAnimal, setSearchAnimal] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { i18n } = useTranslation();
+
+  const load = async (query) => {
+    setLoading(true);
+    try {
+      const data = await getAnimalData(query, i18n.language);
+      setAnimalData(data ? new Animal(data) : null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const initialQuery = (i18n.language || "").toLowerCase().startsWith("tr")
+      ? "aslan"
+      : "lion";
+    load(initialQuery);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [i18n.language]);
+
+  const handleSearch = async () => {
+    const defaultQuery = (i18n.language || "").toLowerCase().startsWith("tr")
+      ? "aslan"
+      : "lion";
+    const q = searchAnimal.trim() || defaultQuery;
+    await load(q);
+  };
 
   return (
-    <div>
-      <div>
-        <div>
-          <input
-            onChange={setSearchAnimal(e.target.value)}
-            type="text"
-            name="animalName"
-            id=""
-          />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+      <Header />
+      <SearchBar
+        value={searchAnimal}
+        onChange={setSearchAnimal}
+        onSearch={handleSearch}
+        loading={loading}
+      />
+
+      {loading && (
+        <div className="flex justify-center items-center py-12">
+          <div className="text-center">
+            <div className="text-5xl mb-4 animate-bounce">🔍</div>
+            <p className="text-gray-600 text-lg">Loading animals...</p>
+          </div>
         </div>
-        <button
-          onClick={() =>
-            setAnimal(
-              getAnimalData(searchAnimal.trim() ? searchAnimal : "lion")
-            )
-          }
-        >
-          Search Animal
-        </button>
-      </div>
-      <div>
-        <div>
-          <img
-            src={animal[0]?.image_link || ""}
-            alt={animal[0]?.name || "Animal"}
-          />
-        </div>
-        <div>
-          <h1>{animal[0]?.name}</h1>
-          <p>{animal[0]?.diet}</p>
-          <p>{animal[0]?.habitat}</p>
-          <p>{animal[0]?.geo_range}</p>
-        </div>
-      </div>
+      )}
+
+      <ResultsGrid animal={animalData} loading={loading} />
     </div>
   );
 }

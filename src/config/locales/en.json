@@ -1,0 +1,14 @@
+{
+  "app": {
+    "title": "Animal Explorer",
+    "subtitle": "Discover fascinating animals from around the world",
+    "searchPlaceholder": "Search for an animal...",
+    "searchButton": "Search Animal",
+    "searching": "Searching...",
+    "loading": "Loading animals...",
+    "type": "Type",
+    "noDescription": "No description available",
+    "readMore": "Read More on Wikipedia",
+    "noAnimals": "No animals found. Try searching for another animal!"
+  }
+}

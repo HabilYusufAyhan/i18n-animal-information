@@ -1,0 +1,14 @@
+{
+  "app": {
+    "title": "Hayvan Gezgini",
+    "subtitle": "Dünya çapında ilginç hayvanları keşfedin",
+    "searchPlaceholder": "Bir hayvan ara...",
+    "searchButton": "Hayvan Ara",
+    "searching": "Aranıyor...",
+    "loading": "Hayvanlar yükleniyor...",
+    "type": "Tür",
+    "noDescription": "Açıklama bulunamadı",
+    "readMore": "Wikipedia'da Daha Fazla Oku",
+    "noAnimals": "Hayvan bulunamadı. Başka bir hayvan aramayı deneyin!"
+  }
+}
