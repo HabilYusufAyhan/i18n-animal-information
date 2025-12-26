@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import enIcon from "../icons/en.png";
 import trIcon from "../icons/tr.png";

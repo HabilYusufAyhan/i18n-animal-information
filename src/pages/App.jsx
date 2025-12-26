@@ -27,7 +27,6 @@ function App() {
       ? "aslan"
       : "lion";
     load(initialQuery);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i18n.language]);
 
   const handleSearch = async () => {

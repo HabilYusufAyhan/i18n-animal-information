@@ -1,4 +1,3 @@
-import React from "react";
 import AnimalCard from "./AnimalCard";
 import { useTranslation } from "react-i18next";
 

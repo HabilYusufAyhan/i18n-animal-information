@@ -1,29 +1,37 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import js from "@eslint/js";
+import globals from "globals";
+import react from "eslint-plugin-react";
+import { defineConfig } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // 1️⃣ Genel önerilenler
+  js.configs.recommended,
+  react.configs.flat.recommended,
+
+  // 2️⃣ OVERRIDE (EN ALTA!)
   {
-    files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
+    files: ["**/*.{js,jsx,mjs,cjs}"],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
-        sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
       },
     },
+    plugins: {
+      react,
+    },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // 🔥 PROP-TYPES KAPALI
+      "react/prop-types": "off",
+
+      // 🔥 React 17+ JSX için
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
-])
+]);

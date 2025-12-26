@@ -2,9 +2,6 @@
 import axios from "axios";
 import i18n from "../config/i18n";
 
-const apiKey = import.meta.env.VITE_API_KEY;
-const apiUrl = import.meta.env.VITE_API_URL;
-
 export const getAnimalData = async (animalName) => {
   const language = (i18n.language || "en").slice(0, 2);
   const wikiBase = `https://${language}.wikipedia.org`;
