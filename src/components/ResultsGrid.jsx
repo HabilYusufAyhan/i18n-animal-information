@@ -1,5 +1,5 @@
-import AnimalCard from "./AnimalCard";
-import { useTranslation } from "react-i18next";
+import AnimalCard from './AnimalCard';
+import { useTranslation } from 'react-i18next';
 
 export default function ResultsGrid({ animal, loading }) {
   const { t } = useTranslation();
@@ -7,11 +7,7 @@ export default function ResultsGrid({ animal, loading }) {
   if (loading) return null;
 
   if (!animal) {
-    return (
-      <p className="text-center text-gray-600 text-lg mt-12">
-        {t("app.noAnimals")}
-      </p>
-    );
+    return <p className="text-center text-gray-600 text-lg mt-12">{t('app.noAnimals')}</p>;
   }
 
   return (

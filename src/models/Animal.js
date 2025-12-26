@@ -5,14 +5,11 @@ export default class Animal {
   }
 
   get title() {
-    return this._data.title || "";
+    return this._data.title || '';
   }
 
   get extract() {
-    return (this._data.translatedExtract || this._data.extract || "").replace(
-      /<[^>]*>/g,
-      ""
-    );
+    return (this._data.translatedExtract || this._data.extract || '').replace(/<[^>]*>/g, '');
   }
 
   get image() {
@@ -23,7 +20,7 @@ export default class Animal {
   }
 
   get description() {
-    return this._data.description || "";
+    return this._data.description || '';
   }
 
   get wikiUrl() {

@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { getAnimalData } from "../services/animal.service";
-import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
-import ResultsGrid from "../components/ResultsGrid";
-import Animal from "../models/Animal";
-import { useTranslation } from "react-i18next";
+import { useState, useEffect } from 'react';
+import { getAnimalData } from '../services/animal.service';
+import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
+import ResultsGrid from '../components/ResultsGrid';
+import Animal from '../models/Animal';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const [animalData, setAnimalData] = useState(null);
-  const [searchAnimal, setSearchAnimal] = useState("");
+  const [searchAnimal, setSearchAnimal] = useState('');
   const [loading, setLoading] = useState(false);
   const { t, i18n } = useTranslation();
 
@@ -23,16 +23,12 @@ function App() {
   };
 
   useEffect(() => {
-    const initialQuery = (i18n.language || "").toLowerCase().startsWith("tr")
-      ? "aslan"
-      : "lion";
+    const initialQuery = (i18n.language || '').toLowerCase().startsWith('tr') ? 'aslan' : 'lion';
     load(initialQuery);
   }, [i18n.language]);
 
   const handleSearch = async () => {
-    const defaultQuery = (i18n.language || "").toLowerCase().startsWith("tr")
-      ? "aslan"
-      : "lion";
+    const defaultQuery = (i18n.language || '').toLowerCase().startsWith('tr') ? 'aslan' : 'lion';
     const q = searchAnimal.trim() || defaultQuery;
     await load(q);
   };
@@ -51,7 +47,7 @@ function App() {
         <div className="flex justify-center items-center py-12">
           <div className="text-center">
             <div className="text-5xl mb-4 animate-bounce">🔍</div>
-            <p className="text-gray-600 text-lg">{t("app.loading")}</p>
+            <p className="text-gray-600 text-lg">{t('app.loading')}</p>
           </div>
         </div>
       )}
