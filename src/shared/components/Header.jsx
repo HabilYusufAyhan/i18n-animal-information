@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import enIcon from '../icons/en.png';
-import trIcon from '../icons/tr.png';
+import enIcon from '/icons/en.png';
+import trIcon from '/icons/tr.png';
 
 export default function Header() {
   const { t, i18n } = useTranslation();
@@ -33,7 +33,7 @@ export default function Header() {
         </div>
       </div>
 
-      <h1 className="text-5xl font-bold text-indigo-900 mb-2">🦁 {t('app.title')}</h1>
+      <h1 className="text-5xl font-bold text-indigo-900 mb-2">{t('app.title')}</h1>
       <p className="text-gray-600 text-lg">{t('app.subtitle')}</p>
     </div>
   );

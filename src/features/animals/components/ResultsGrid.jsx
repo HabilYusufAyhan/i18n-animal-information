@@ -7,7 +7,7 @@ export default function ResultsGrid({ animal, loading }) {
   if (loading) return null;
 
   if (!animal) {
-    return <p className="text-center text-gray-600 text-lg mt-12">{t('app.noAnimals')}</p>;
+    return <p className="text-center text-gray-600 text-lg mt-12">{t('animal.noAnimals')}</p>;
   }
 
   return (
@@ -16,7 +16,7 @@ export default function ResultsGrid({ animal, loading }) {
         <AnimalCard animal={animal} />
       ) : (
         <div>
-          <p className="text-center text-gray-600 text-lg mt-12">{t('app.noAnimals')}</p>
+          <p className="text-center text-gray-600 text-lg mt-12">{t('animal.noAnimals')}</p>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const createSearchSchema = (t) =>
+export const createAnimalSearchSchema = (t) =>
   z.object({
     query: z
       .string()

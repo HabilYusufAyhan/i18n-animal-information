@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { getAnimalData } from '../services/animal.service';
-import Header from '../components/Header';
+import Header from '../../../shared/components/Header.jsx';
 import SearchBar from '../components/SearchBar';
 import ResultsGrid from '../components/ResultsGrid';
 import Animal from '../models/Animal';
 import { useTranslation } from 'react-i18next';
-import { useAnimalStore } from '../stores/useAnimalStore';
+import { useAnimalStore } from '../store/useAnimalStore.js';
 
-function App() {
+function animalPage() {
   const { t, i18n } = useTranslation();
   const { animalData, setAnimalData, loading, setLoading } = useAnimalStore();
 
@@ -40,7 +40,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 p-8">
       <Header />
 
       <SearchBar onSearch={handleSearch} loading={loading} />
@@ -59,4 +59,4 @@ function App() {
   );
 }
 
-export default App;
+export default animalPage;

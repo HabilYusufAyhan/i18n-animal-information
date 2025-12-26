@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslation } from 'react-i18next';
-import { createSearchSchema } from '../schemas/searchSchema';
+import { createAnimalSearchSchema } from '../schemas/searchSchema.js';
 
 export default function SearchBar({ onSearch, loading }) {
   const { t } = useTranslation();
@@ -11,7 +11,7 @@ export default function SearchBar({ onSearch, loading }) {
     handleSubmit,
     formState: { errors }
   } = useForm({
-    resolver: zodResolver(createSearchSchema(t))
+    resolver: zodResolver(createAnimalSearchSchema(t))
   });
 
   const submit = ({ query }) => {
@@ -22,7 +22,7 @@ export default function SearchBar({ onSearch, loading }) {
     <form onSubmit={handleSubmit(submit)} className="flex flex-col gap-4 max-w-2xl mx-auto mb-12">
       <input
         {...register('query')}
-        placeholder={t('app.searchPlaceholder')}
+        placeholder={t('animal.searchPlaceholder')}
         className="px-6 py-3 rounded-lg border-2 border-indigo-300 focus:border-indigo-600 focus:outline-none text-lg shadow-md transition"
         type="text"
       />
@@ -37,10 +37,10 @@ export default function SearchBar({ onSearch, loading }) {
         {loading ? (
           <span className="flex items-center justify-center">
             <span className="inline-block animate-spin mr-2">⏳</span>
-            {t('app.searching')}
+            {t('animal.searching')}
           </span>
         ) : (
-          t('app.searchButton')
+          t('animal.searchButton')
         )}
       </button>
     </form>

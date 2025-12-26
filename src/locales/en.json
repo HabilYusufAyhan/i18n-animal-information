@@ -1,7 +1,5 @@
 {
-  "app": {
-    "title": "Animal Explorer",
-    "subtitle": "Discover fascinating animals from around the world",
+  "animal": {
     "searchPlaceholder": "Search for an animal...",
     "searchButton": "Search Animal",
     "searching": "Searching...",
@@ -9,7 +7,11 @@
     "type": "Type",
     "noDescription": "No description available",
     "readMore": "Read More on Wikipedia",
-    "noAnimals": "No animals found. Try searching for another animal!",
+    "noAnimals": "No animals found. Try searching for another animal!"
+  },
+  "app": {
+    "title": "Creatures Explorer",
+    "subtitle": "Discover fascinating creatures around the world.",
     "minLengthError": "The search term must be at least 2 characters long.",
     "maxLengthError": "The search term can be at most 50 characters long.",
     "invalidCharsError": "The search term can only contain letters and spaces."

@@ -18,11 +18,11 @@ export default function AnimalCard({ animal }) {
         <h2 className="text-2xl font-bold text-indigo-900 mb-2">{animal.title}</h2>
         {animal.description && (
           <p className="text-gray-600 text-sm mb-3 font-semibold">
-            {t('app.type')}: {animal.description}
+            {t('animal.type')}: {animal.description}
           </p>
         )}
         <p className="text-gray-700 line-clamp-4 text-sm leading-relaxed">
-          {animal.extract || t('app.noDescription')}
+          {animal.extract || t('animal.noDescription')}
         </p>
         <a
           href={animal.wikiUrl}
@@ -30,7 +30,7 @@ export default function AnimalCard({ animal }) {
           rel="noopener noreferrer"
           className="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-semibold text-sm"
         >
-          {t('app.readMore')} →
+          {t('animal.readMore')} →
         </a>
       </div>
     </div>

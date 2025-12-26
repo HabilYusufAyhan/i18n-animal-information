@@ -1,5 +1,5 @@
 import axios from 'axios';
-import i18n from '../config/i18n';
+import i18n from '../../../config/i18n.js';
 
 export const getAnimalData = async (animalName) => {
   const language = (i18n.language || 'en').slice(0, 2);
