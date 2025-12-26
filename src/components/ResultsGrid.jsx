@@ -16,7 +16,7 @@ export default function ResultsGrid({ animal, loading }) {
   }
 
   return (
-    <div className="flex justify-center items-center gap-8 max-w-6xl mx-auto">
+    <div className="flex flex-col items-center justify-center gap-8 max-w-6xl mx-auto">
       <AnimalCard animal={animal} />
     </div>
   );

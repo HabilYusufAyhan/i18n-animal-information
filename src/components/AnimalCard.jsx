@@ -6,8 +6,8 @@ export default function AnimalCard({ animal }) {
   if (!animal) return null;
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 hover:shadow-2xl">
-      <div className="w-full h-64 bg-linear-to-br from-indigo-200 to-blue-200 overflow-hidden">
+    <div className="bg-white rounded-xl  overflow-hidden transform transition duration-300 shadow-2xl">
+      <div className="w-full bg-linear-to-br from-indigo-200 to-blue-200 overflow-hidden">
         {animal.image ? (
           <img
             className="w-full h-full object-cover"

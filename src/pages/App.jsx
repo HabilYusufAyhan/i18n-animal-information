@@ -10,7 +10,7 @@ function App() {
   const [animalData, setAnimalData] = useState(null);
   const [searchAnimal, setSearchAnimal] = useState("");
   const [loading, setLoading] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const load = async (query) => {
     setLoading(true);
@@ -52,7 +52,7 @@ function App() {
         <div className="flex justify-center items-center py-12">
           <div className="text-center">
             <div className="text-5xl mb-4 animate-bounce">🔍</div>
-            <p className="text-gray-600 text-lg">Loading animals...</p>
+            <p className="text-gray-600 text-lg">{t("app.loading")}</p>
           </div>
         </div>
       )}
