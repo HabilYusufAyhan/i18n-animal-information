@@ -1,4 +1,3 @@
-// Simple OOP wrapper for animal data returned from API
 export default class Animal {
   constructor(data = {}) {
     this._data = data;

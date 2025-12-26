@@ -12,7 +12,13 @@ export default function ResultsGrid({ animal, loading }) {
 
   return (
     <div className="flex flex-col items-center justify-center gap-8 max-w-6xl mx-auto">
-      <AnimalCard animal={animal} />
+      {animal != null ? (
+        <AnimalCard animal={animal} />
+      ) : (
+        <div>
+          <p className="text-center text-gray-600 text-lg mt-12">{t('app.noAnimals')}</p>
+        </div>
+      )}
     </div>
   );
 }

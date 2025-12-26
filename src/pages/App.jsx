@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 
 function App() {
   const [animalData, setAnimalData] = useState(null);
-  const [searchAnimal, setSearchAnimal] = useState('');
   const [loading, setLoading] = useState(false);
   const { t, i18n } = useTranslation();
 
@@ -17,31 +16,34 @@ function App() {
     try {
       const data = await getAnimalData(query, i18n.language);
       setAnimalData(data ? new Animal(data) : null);
+    } catch (error) {
+      if (error.status === 404) {
+        setAnimalData(null);
+      } else {
+        console.error('Error fetching animal data:', error);
+      }
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    const initialQuery = (i18n.language || '').toLowerCase().startsWith('tr') ? 'aslan' : 'lion';
+    const initialQuery = i18n.language?.toLowerCase().startsWith('tr') ? 'aslan' : 'lion';
+
     load(initialQuery);
   }, [i18n.language]);
 
-  const handleSearch = async () => {
-    const defaultQuery = (i18n.language || '').toLowerCase().startsWith('tr') ? 'aslan' : 'lion';
-    const q = searchAnimal.trim() || defaultQuery;
-    await load(q);
+  const handleSearch = async (query) => {
+    const fallback = i18n.language?.toLowerCase().startsWith('tr') ? 'aslan' : 'lion';
+
+    await load(query || fallback);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
       <Header />
-      <SearchBar
-        value={searchAnimal}
-        onChange={setSearchAnimal}
-        onSearch={handleSearch}
-        loading={loading}
-      />
+
+      <SearchBar onSearch={handleSearch} loading={loading} />
 
       {loading && (
         <div className="flex justify-center items-center py-12">

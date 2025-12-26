@@ -1,20 +1,36 @@
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslation } from 'react-i18next';
+import { createSearchSchema } from '../schemas/searchSchema';
 
-export default function SearchBar({ value, onChange, onSearch, loading }) {
+export default function SearchBar({ onSearch, loading }) {
   const { t } = useTranslation();
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: zodResolver(createSearchSchema(t))
+  });
+
+  const submit = ({ query }) => {
+    onSearch(query);
+  };
+
   return (
-    <div className="flex flex-col gap-4 max-w-2xl mx-auto mb-12">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-col gap-4 max-w-2xl mx-auto mb-12">
       <input
-        onChange={(e) => onChange(e.target.value)}
-        onKeyPress={(e) => e.key === 'Enter' && onSearch()}
+        {...register('query')}
         placeholder={t('app.searchPlaceholder')}
         className="px-6 py-3 rounded-lg border-2 border-indigo-300 focus:border-indigo-600 focus:outline-none text-lg shadow-md transition"
         type="text"
-        value={value}
       />
+
+      {errors.query && <p className="text-red-500 text-sm text-center">{errors.query.message}</p>}
+
       <button
-        onClick={onSearch}
+        type="submit"
         disabled={loading}
         className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white font-bold rounded-lg shadow-lg transition duration-200 transform hover:scale-105"
       >
@@ -27,6 +43,6 @@ export default function SearchBar({ value, onChange, onSearch, loading }) {
           t('app.searchButton')
         )}
       </button>
-    </div>
+    </form>
   );
 }

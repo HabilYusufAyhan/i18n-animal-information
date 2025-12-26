@@ -9,6 +9,9 @@
     "type": "Tür",
     "noDescription": "Açıklama bulunamadı",
     "readMore": "Wikipedia'da Daha Fazla Oku",
-    "noAnimals": "Hayvan bulunamadı. Başka bir hayvan aramayı deneyin!"
+    "noAnimals": "Hayvan bulunamadı. Başka bir hayvan aramayı deneyin!",
+    "minLengthError": "Arama terimi en az 2 karakter uzunluğunda olmalıdır.",
+    "maxLengthError": "Arama terimi en fazla 50 karakter uzunluğunda olabilir.",
+    "invalidCharsError": "Arama terimi sadece harfler ve boşluklar içerebilir."
   }
 }
