@@ -7,7 +7,7 @@ export const getAnimalData = async (animalName) => {
   const wikiBase = `https://${language}.wikipedia.org`;
   const title = (animalName || "").trim().replace(/ /g, "_");
   const urlWithLang = `${wikiBase}/api/rest_v1/page/summary/${encodeURIComponent(
-    title,
+    title
   )}`;
   try {
     const response = await axios.get(urlWithLang);
