@@ -11,7 +11,7 @@ export default class Animal {
   get extract() {
     return (this._data.translatedExtract || this._data.extract || "").replace(
       /<[^>]*>/g,
-      ""
+      "",
     );
   }
 
