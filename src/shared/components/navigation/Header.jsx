@@ -6,7 +6,7 @@ export default function Header() {
   const { t, i18n } = useTranslation();
 
   return (
-    <div className="text-center mb-12">
+    <div className="text-center mb-4">
       {/* Language Toggle Buttons */}
       <div className="flex justify-center gap-3 mb-6">
         <div

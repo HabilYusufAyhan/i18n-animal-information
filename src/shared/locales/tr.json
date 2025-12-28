@@ -1,0 +1,30 @@
+{
+  "animal": {
+    "searchPlaceholder": "Bir hayvan ara...",
+    "searchButton": "Hayvan Ara",
+    "loading": "Hayvanlar yükleniyor...",
+    "noAnimals": "Hayvan bulunamadı. Başka bir hayvan aramayı deneyin!"
+  },
+  "app": {
+    "title": "Canlılar Gezgini",
+    "subtitle": "Dünya çapında ilginç canlıları keşfedin",
+    "minLengthError": "Arama terimi en az 2 karakter uzunluğunda olmalıdır.",
+    "maxLengthError": "Arama terimi en fazla 50 karakter uzunluğunda olabilir.",
+    "invalidCharsError": "Arama terimi sadece harfler ve boşluklar içerebilir.",
+    "speciesinfo": "Arama türünü seçiniz.",
+    "plants": "Bitkiler",
+    "animals": "Hayvanlar",
+    "searching": "Aranıyor...",
+    "type": "Tür",
+    "noDescription": "Açıklama bulunamadı",
+    "readMore": "Wikipedia'da Daha Fazla Oku",
+    "welcome": "Hoş geldiniz 👋",
+    "searchHint": "Bilgi almak istediğiniz hayvanı veya bitkiyi arayın."
+  },
+  "plant": {
+    "searchPlaceholder": "Bir bitki ara...",
+    "searchButton": "Bitki Ara",
+    "loading": "Bitkiler yükleniyor...",
+    "noPlants": "Bitki bulunamadı. Başka bir bitki aramayı deneyin!"
+  }
+}

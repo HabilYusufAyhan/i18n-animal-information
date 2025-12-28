@@ -1,12 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AnimalsPage from './features/animals/pages/animalPage.jsx';
+import AnimalPage from './features/animals/routes/AnimalPage.jsx';
+import PlantPage from './features/plants/routes/PlantPage.jsx';
+import RootLayout from './shared/layouts/rootLayout.jsx';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/animals" element={<AnimalsPage />} />
-        <Route path="*" element={<AnimalsPage />} />
+        <Route element={<RootLayout />}>
+          <Route path="/animals" element={<AnimalPage />} />
+          <Route path="/plants" element={<PlantPage />} />
+          <Route path="*" element={<AnimalPage />} />
+        </Route>
       </Routes>
     </Router>
   );

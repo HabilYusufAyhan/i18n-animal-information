@@ -1,0 +1,30 @@
+{
+  "animal": {
+    "searchPlaceholder": "Search for an animal...",
+    "searchButton": "Search Animal",
+    "loading": "Loading animals...",
+    "noAnimals": "No animals found. Try searching for another animal!"
+  },
+  "app": {
+    "title": "Creatures Explorer",
+    "subtitle": "Discover fascinating creatures around the world.",
+    "minLengthError": "The search term must be at least 2 characters long.",
+    "maxLengthError": "The search term can be at most 50 characters long.",
+    "invalidCharsError": "The search term can only contain letters and spaces.",
+    "speciesinfo": "Please select the search species.",
+    "plants": "Plants",
+    "animals": "Animals",
+    "type": "Type",
+    "noDescription": "No description available",
+    "readMore": "Read More on Wikipedia",
+    "searching": "Searching...",
+    "welcome": "Welcome 👋",
+    "searchHint": "Search for an animal or plant to learn more."
+  },
+  "plant": {
+    "searchPlaceholder": "Search for a plant...",
+    "searchButton": "Search Plant",
+    "loading": "Loading plants...",
+    "noPlants": "No plants found. Try searching for another plant!"
+  }
+}
