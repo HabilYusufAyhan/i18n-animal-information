@@ -7,7 +7,6 @@ export default function Header() {
 
   return (
     <div className="text-center mb-4">
-      {/* Language Toggle Buttons */}
       <div className="flex justify-center gap-3 mb-6">
         <div
           onClick={() => i18n.changeLanguage('en')}

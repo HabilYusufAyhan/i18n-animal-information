@@ -13,11 +13,11 @@ export default function RootLayout() {
   }, [location.pathname]);
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 p-8">
-      <Header /> {/* Tüm sayfalarda ortak */}
-      <SwitchSpecies /> {/* Tür seçimi bileşeni */}
+      <Header />
+      <SwitchSpecies />
       <SearchBar />
       {loading && <LoadingBar />}
-      <Outlet /> {/* Alt rotalar burada render edilecek */}
+      <Outlet />
     </div>
   );
 }
