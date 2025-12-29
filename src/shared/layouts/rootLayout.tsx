@@ -1,10 +1,10 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from '../components/navigation/Header.jsx';
-import SwitchSpecies from '../components/navigation/SwitchSpecies.jsx';
-import SearchBar from '../components/forms/SearchBar.jsx';
+import Header from '../components/navigation/Header.js';
+import SwitchSpecies from '../components/navigation/SwitchSpecies.js';
+import SearchBar from '../components/forms/SearchBar.js';
 import { useEffect } from 'react';
-import { useGlobalStore } from '../../shared/store/useGlobalStore.js';
-import LoadingBar from '../components/feedback/LoadingBar.jsx';
+import { useGlobalStore } from '../store/useGlobalStore.js';
+import LoadingBar from '../components/feedback/LoadingBar.js';
 export default function RootLayout() {
   const { setSpecies, loading } = useGlobalStore();
   const location = useLocation();

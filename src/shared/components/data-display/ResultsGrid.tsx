@@ -2,7 +2,20 @@ import { useGlobalStore } from '../../store/useGlobalStore';
 import Card from './Card';
 import { useTranslation } from 'react-i18next';
 
-export default function ResultsGrid({ data, loading }) {
+interface ResultsGridProps {
+  data:
+    | {
+        image?: string;
+        title: string;
+        description?: string;
+        extract?: string;
+        wikiUrl: string;
+      }
+    | null
+    | undefined;
+  loading: boolean;
+}
+export default function ResultsGrid({ data, loading }: ResultsGridProps) {
   const { t } = useTranslation();
   const { species } = useGlobalStore();
 

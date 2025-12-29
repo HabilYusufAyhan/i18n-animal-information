@@ -2,16 +2,17 @@ import { useTranslation } from 'react-i18next';
 import { getData } from '../../../shared/services/data.service';
 import { useGlobalStore } from '../../../shared/store/useGlobalStore';
 import Plant from '../models/Plant';
+
 export const usePlantLoader = () => {
   const { i18n } = useTranslation();
   const { setLoading, setData } = useGlobalStore();
 
-  const loadPlant = async (query) => {
+  const loadPlant = async (query: string) => {
     setLoading(true);
     try {
-      const data = await getData(query, i18n.language);
+      const data = await getData(query);
       setData(data ? new Plant(data) : null);
-    } catch (error) {
+    } catch (error: any) {
       if (error.response?.status === 404) {
         setData(null);
       } else {
@@ -21,5 +22,6 @@ export const usePlantLoader = () => {
       setLoading(false);
     }
   };
+
   return { loadPlant };
 };

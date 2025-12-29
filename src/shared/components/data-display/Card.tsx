@@ -1,7 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { useGlobalStore } from '../../store/useGlobalStore';
 
-export default function Card({ data }) {
+interface CardProps {
+  data: {
+    image?: string;
+    title: string;
+    description?: string;
+    extract?: string;
+    wikiUrl: string;
+  } | null;
+}
+export default function Card({ data }: CardProps) {
   const { species } = useGlobalStore();
   const { t } = useTranslation();
   if (!data) return null;

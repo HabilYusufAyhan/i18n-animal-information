@@ -1,6 +1,9 @@
 import { z } from 'zod';
 
-export const createGlobalSearchSchema = (t) =>
+interface TranslationFunction {
+  (key: string): string;
+}
+export const createGlobalSearchSchema = (t: TranslationFunction) =>
   z.object({
     query: z
       .string()

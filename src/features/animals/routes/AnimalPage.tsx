@@ -1,5 +1,5 @@
 import { useGlobalStore } from '../../../shared/store/useGlobalStore.js';
-import ResultsGrid from '../../../shared/components/data-display/ResultsGrid.jsx';
+import ResultsGrid from '../../../shared/components/data-display/ResultsGrid.js';
 
 function animalPage() {
   const { loading, data } = useGlobalStore();

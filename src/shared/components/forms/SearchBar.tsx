@@ -5,8 +5,11 @@ import { createGlobalSearchSchema } from '../../schemas/searchSchema.js';
 import { useGlobalStore } from '../../store/useGlobalStore.js';
 import { useAnimalLoader } from '../../../features/animals/hooks/useAnimalLoader.js';
 import { usePlantLoader } from '../../../features/plants/hooks/usePlantLoader.js';
-import ErrorMessage from '../ErrorMessage.jsx';
+import ErrorMessage from '../feedback/ErrorMessage.js';
 
+interface SearchFormInputs {
+  query: string;
+}
 export default function SearchBar() {
   const { t } = useTranslation();
   const { species, loading } = useGlobalStore();
@@ -20,7 +23,7 @@ export default function SearchBar() {
     resolver: zodResolver(createGlobalSearchSchema(t))
   });
 
-  const submit = ({ query }) => {
+  const submit = ({ query }: SearchFormInputs) => {
     if (species === 'animal') {
       loadAnimal(query);
     } else {

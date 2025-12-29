@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AnimalPage from './features/animals/routes/AnimalPage.jsx';
 import PlantPage from './features/plants/routes/PlantPage.jsx';
-import RootLayout from './shared/layouts/rootLayout.jsx';
+import RootLayout from './shared/layouts/rootLayout.js';
 
 function App() {
   return (

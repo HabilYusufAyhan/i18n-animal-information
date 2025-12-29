@@ -7,12 +7,12 @@ export const useAnimalLoader = () => {
   const { i18n } = useTranslation();
   const { setLoading, setData } = useGlobalStore();
 
-  const loadAnimal = async (query) => {
+  const loadAnimal = async (query: string) => {
     setLoading(true);
     try {
-      const data = await getData(query, i18n.language);
+      const data = await getData(query);
       setData(data ? new Animal(data) : null);
-    } catch (error) {
+    } catch (error: any) {
       if (error.response?.status === 404) {
         setData(null);
       } else {
