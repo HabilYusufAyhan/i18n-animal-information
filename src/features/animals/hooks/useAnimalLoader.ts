@@ -4,7 +4,6 @@ import { useGlobalStore } from '../../../shared/store/useGlobalStore';
 import Animal from '../models/Animal';
 
 export const useAnimalLoader = () => {
-  const { i18n } = useTranslation();
   const { setLoading, setData } = useGlobalStore();
 
   const loadAnimal = async (query: string) => {

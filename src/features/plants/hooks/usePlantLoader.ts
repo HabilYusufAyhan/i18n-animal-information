@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { getData } from '../../../shared/services/data.service';
 import { useGlobalStore } from '../../../shared/store/useGlobalStore';
 import Plant from '../models/Plant';
 
 export const usePlantLoader = () => {
-  const { i18n } = useTranslation();
   const { setLoading, setData } = useGlobalStore();
 
   const loadPlant = async (query: string) => {
