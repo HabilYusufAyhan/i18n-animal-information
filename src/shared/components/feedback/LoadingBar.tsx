@@ -3,7 +3,6 @@ import { useGlobalStore } from '../../store/useGlobalStore.js';
 export default function LoadingBar() {
   const { t } = useTranslation();
   const { species } = useGlobalStore();
-  console.log(species);
 
   return (
     <div className="flex justify-center items-center py-12">
